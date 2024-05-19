@@ -1,0 +1,8 @@
+C:\Users\Brenda\source\repos\POC_PIM\POC_PIM\obj\Debug\POC_PIM.csproj.AssemblyReference.cache
+C:\Users\Brenda\source\repos\POC_PIM\POC_PIM\obj\Debug\POC_PIM.csproj.SuggestedBindingRedirects.cache
+C:\Users\Brenda\source\repos\POC_PIM\POC_PIM\obj\Debug\POC_PIM.csproj.CoreCompileInputs.cache
+C:\Users\Brenda\source\repos\POC_PIM\POC_PIM\bin\Debug\POC_PIM.exe.config
+C:\Users\Brenda\source\repos\POC_PIM\POC_PIM\bin\Debug\POC_PIM.exe
+C:\Users\Brenda\source\repos\POC_PIM\POC_PIM\bin\Debug\POC_PIM.pdb
+C:\Users\Brenda\source\repos\POC_PIM\POC_PIM\obj\Debug\POC_PIM.exe
+C:\Users\Brenda\source\repos\POC_PIM\POC_PIM\obj\Debug\POC_PIM.pdb
