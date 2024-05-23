@@ -6,7 +6,15 @@ using System.Threading.Tasks;
 
 namespace POC_PIM.BLL
 {
-    internal class ClienteFisico
+    class ClienteFisico
     {
+        int codClienteFisico;
+        string cpfCliente;
+        int codClienteF;
+
+
+        public int CodClienteFisico { get => codClienteFisico; set {codClienteFisico = value; } }
+        public string CpfCliente { get => cpfCliente; set { cpfCliente = value; } }
+        public int CodClienteF { get => codClienteF; set { codClienteF = value; } }
     }
 }

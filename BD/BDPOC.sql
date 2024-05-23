@@ -16,6 +16,25 @@ numeroEnderecoCliente INT NOT NULL,
 CONSTRAINT PkcodCliente PRIMARY KEY (codCliente)
 )
 
+CREATE TABLE ClienteJuridico
+(
+codClienteJuridico INT IDENTITY,
+cnpjCliente CHAR (14) NOT NULL,
+razaoSocialCliente VARCHAR (60) NOT NULL,
+codClienteJ INT NOT NULL,
+CONSTRAINT PkcodClienteJuridico PRIMARY KEY (codClienteJuridico),
+CONSTRAINT FkcodClienteJ FOREIGN KEY (codClienteJ) REFERENCES Cliente (codCliente)
+)
+
+CREATE TABLE ClienteFisico 
+(
+codClienteFisico INT IDENTITY,
+cpfCliente CHAR (11) NOT NULL,
+codClienteF INT NOT NULL,
+CONSTRAINT PkcodClienteFisico PRIMARY KEY (codClienteFisico),
+CONSTRAINT FkcodClienteF FOREIGN KEY (codClienteF) REFERENCES Cliente (codCliente)
+)
+
 CREATE TABLE Usuario
 (
 codUsuario INT IDENTITY,
@@ -36,3 +55,12 @@ dataValidadeProduto DATE NOT NULL,
 CONSTRAINT PkCodProduto PRIMARY KEY (codProduto)
 
 )
+
+
+SELECT * FROM Cliente
+
+SELECT * FROM ClienteFisico
+
+--TESTANDO DQL (CONSULTAS COM INNER JOIN)
+SELECT nomeCliente AS 'Nome', cpfCliente AS 'CPF', emailCliente AS 'Email 'FROM Cliente JOIN ClienteFisico ON Cliente.codCliente = ClienteFisico.codClienteF
+
