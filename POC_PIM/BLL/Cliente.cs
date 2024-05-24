@@ -8,16 +8,18 @@ namespace POC_PIM.BLL
 {
      class Cliente
     {
-        int codCliente;
-        string nomeCliente;
-        string emailCliente;
-        string ufCliente;
-        string cidadeCliente;
-        string telefoneCliente;
-        string cepCliente;
-        string logradouroCliente;
-        int numCliente;
+        //valores que correspondem ao que estao no banco
+        private int codCliente;
+        private string nomeCliente;
+        private string emailCliente;
+        private string ufCliente;
+        private string cidadeCliente;
+        private string telefoneCliente;
+        private string cepCliente;
+        private string logradouroCliente;
+        private int numCliente;
         
+        //Encapsulamento
         public int CodCliente { get => codCliente; set => codCliente = value; }
        
         public string NomeCliente { get => nomeCliente; set { nomeCliente = value; } }

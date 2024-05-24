@@ -8,10 +8,10 @@ namespace POC_PIM.BLL
 {
     internal class Produto
     {
-        int codProduto;
-        string nomeProduto;
-        double precoProduto;
-        DateTime dataValidadeProduto;
+        private int codProduto;
+        private string nomeProduto;
+        private double precoProduto;
+        private DateTime dataValidadeProduto;
 
         public int CodProduto { get => codProduto; set { codProduto = value; } }
 

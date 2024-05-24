@@ -56,6 +56,22 @@ CONSTRAINT PkCodProduto PRIMARY KEY (codProduto)
 
 )
 
+CREATE TABLE Fornecedor 
+(
+codFornecedor INT IDENTITY,
+nomeFornecedor VARCHAR (50) NOT NULL,
+emailFornecedor VARCHAR (80) NOT NULL,
+ufFornecedor CHAR (2) NOT NULL,
+cidadeFornecedor VARCHAR (50) NOT NULL,
+logradouroFornecedor VARCHAR (50) NOT NULL,
+numeroEnderecoFornecedor INT NOT NULL,
+cnpjFornecedor CHAR (14) NOT NULL,
+razaoSocialFornecedor VARCHAR (60),
+
+CONSTRAINT PkcodFornecedor PRIMARY KEY (codFornecedor)
+
+)
+
 
 SELECT * FROM Cliente
 
@@ -64,3 +80,4 @@ SELECT * FROM ClienteFisico
 --TESTANDO DQL (CONSULTAS COM INNER JOIN)
 SELECT nomeCliente AS 'Nome', cpfCliente AS 'CPF', emailCliente AS 'Email 'FROM Cliente JOIN ClienteFisico ON Cliente.codCliente = ClienteFisico.codClienteF
 
+SELECT * FROM Fornecedor

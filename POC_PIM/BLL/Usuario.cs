@@ -8,11 +8,11 @@ namespace POC_PIM.BLL
 {
     class Usuario
     {
-        int codCliente;
-        string nomeUsuario;
-        int nivelAcesso;
-        string login;
-        string senha;
+        private int codCliente;
+        private string nomeUsuario;
+        private int nivelAcesso;
+        private string login;
+        private string senha;
 
 
         public int CodCliente { get => codCliente; set => codCliente = value; }

@@ -14,7 +14,7 @@ namespace POC_PIM.DAL
 
         public void CadastrarClienteF (BLL.ClienteFisico clienteFisico)
         {
-            //instanciando classe de conexão com o banco de dados
+            //instanciando objeto do tipo comando sqlcommand 
             SqlCommand cmd = new SqlCommand();
 
             cmd.CommandText = @"INSERT INTO ClienteFisico VALUES (@CpfCliente, @CodClienteF)";

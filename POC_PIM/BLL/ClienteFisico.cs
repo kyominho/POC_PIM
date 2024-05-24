@@ -8,9 +8,9 @@ namespace POC_PIM.BLL
 {
     class ClienteFisico
     {
-        int codClienteFisico;
-        string cpfCliente;
-        int codClienteF;
+        private int codClienteFisico;
+        private string cpfCliente;
+        private int codClienteF;
 
 
         public int CodClienteFisico { get => codClienteFisico; set {codClienteFisico = value; } }

@@ -61,7 +61,9 @@
     <Compile Include="BLL\Venda.cs" />
     <Compile Include="DAL\ClienteDAL.cs" />
     <Compile Include="DAL\ClienteFisicoDAL.cs" />
+    <Compile Include="DAL\ClienteJuridicoDAL.cs" />
     <Compile Include="DAL\Conexao.cs" />
+    <Compile Include="DAL\FornecedorDAL.cs" />
     <Compile Include="DAL\ProdutoDAL.cs" />
     <Compile Include="DAL\UsuarioDAL.cs" />
     <Compile Include="Program.cs" />
