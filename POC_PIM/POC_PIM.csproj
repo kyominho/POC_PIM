@@ -64,6 +64,7 @@
     <Compile Include="DAL\ClienteJuridicoDAL.cs" />
     <Compile Include="DAL\Conexao.cs" />
     <Compile Include="DAL\FornecedorDAL.cs" />
+    <Compile Include="DAL\InsumoDAL.cs" />
     <Compile Include="DAL\ProdutoDAL.cs" />
     <Compile Include="DAL\UsuarioDAL.cs" />
     <Compile Include="Program.cs" />

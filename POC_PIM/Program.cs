@@ -22,6 +22,7 @@ namespace POC_PIM
             Console.WriteLine("4 - Cadastrar Cliente Fisíco");
             Console.WriteLine("5 - Cadastrar Cliente Juridico");
             Console.WriteLine("6 - Cadastrar Fornecedor");
+            Console.WriteLine("7 - Cadastrar Insumo");
 
             escolha = Convert.ToInt32(Console.ReadLine());
 
@@ -276,6 +277,41 @@ namespace POC_PIM
                     {
                         Console.WriteLine(String.Format("Erro ao executar cadastro de Fornecedor {0}.  Erro:  " +
         "{1}", fornecedor.NomeFornecedor, ex.Message));
+                        Console.ReadKey();
+                    }
+
+
+                    break;
+
+
+                case 7:
+
+                    BLL.Insumo insumo = new BLL.Insumo();
+                    DAL.InsumoDAL insumoDAL = new DAL.InsumoDAL();
+
+                    try
+                    {
+                        Console.WriteLine("Digite o nome do Insumo: ");
+                        insumo.NomeInsumo = Console.ReadLine();
+
+                        Console.WriteLine("Digite a data de validade do Insumo: ");
+                        insumo.DataValidadeInsumo = Convert.ToDateTime(Console.ReadLine());
+
+                        Console.WriteLine("Digite o preço do Insumo: ");
+                        insumo.PrecoInsumo = Convert.ToDouble(Console.ReadLine());
+
+                        insumoDAL.CadastrarInsumo(insumo);
+
+                        Console.WriteLine("Dados cadastrados!");
+
+                        Console.ReadKey();
+                        Console.Clear();
+                    }
+
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(String.Format("Erro ao executar cadastro de Insumo {0}.  Erro:  " +
+      "{1}", insumo.NomeInsumo, ex.Message));
                         Console.ReadKey();
                     }
 

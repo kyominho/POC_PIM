@@ -72,6 +72,16 @@ CONSTRAINT PkcodFornecedor PRIMARY KEY (codFornecedor)
 
 )
 
+CREATE TABLE Insumo (
+codInsumo INT IDENTITY,
+nomeInsumo VARCHAR (60) NOT NULL,
+dataValidadeInsumo DATE  NOT NULL,
+precoInsumo MONEY NOT NULL
+
+)
+
+
+SELECT codInsumo AS 'Código', nomeInsumo AS 'Nome', dataValidadeInsumo AS 'Data de Validade', precoInsumo AS 'Preço' FROM Insumo
 
 SELECT * FROM Cliente
 
