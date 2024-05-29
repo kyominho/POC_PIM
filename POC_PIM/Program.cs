@@ -23,6 +23,7 @@ namespace POC_PIM
             Console.WriteLine("5 - Cadastrar Cliente Juridico");
             Console.WriteLine("6 - Cadastrar Fornecedor");
             Console.WriteLine("7 - Cadastrar Insumo");
+            Console.WriteLine("8 - Cadastrar Estoque de Insumo");
 
             escolha = Convert.ToInt32(Console.ReadLine());
 
@@ -312,6 +313,40 @@ namespace POC_PIM
                     {
                         Console.WriteLine(String.Format("Erro ao executar cadastro de Insumo {0}.  Erro:  " +
       "{1}", insumo.NomeInsumo, ex.Message));
+                        Console.ReadKey();
+                    }
+
+
+                    break;
+
+                case 8:
+
+                    BLL.EstoqueInsumo estoqueInsumo = new BLL.EstoqueInsumo();
+                    DAL.EstoqueInsumoDAL estoqueInsumoDAL = new DAL.EstoqueInsumoDAL();
+
+                    try
+                          {
+
+                        Console.WriteLine("Digite a quantidade de estoque do Insumo: ");
+                        estoqueInsumo.QuantidadeEstoqueInsumo = Convert.ToInt32(Console.ReadLine());
+
+                        Console.WriteLine("Digite o código do Insumo: ");
+                        estoqueInsumo.CodInsumoEI = Convert.ToInt32(Console.ReadLine());
+
+                        estoqueInsumoDAL.CadastrarEstoqueI(estoqueInsumo);
+
+                        Console.WriteLine("Dados Cadastrados");
+
+                        Console.ReadKey();
+                        Console.Clear();
+
+                    }
+
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(String.Format("Erro ao executar cadastro do Estoque de Insumo {0}.  Erro:  " +
+      "{1}", estoqueInsumo.CodInsumoEI, ex.Message));
+
                         Console.ReadKey();
                     }
 
