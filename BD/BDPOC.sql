@@ -111,10 +111,89 @@ CREATE TABLE Compra
 
 )
 
+CREATE TABLE ItensCompra 
+(
+	codItensCompra INT IDENTITY,
+	quantidadeItensCompra INT NOT NULL,
+	valorTotalItensCompra MONEY NOT NULL,
+	codCompraIC INT NOT NULL,
+	codInsumoIC INT NOT NULL,
+	CONSTRAINT PkcodItensCompra PRIMARY KEY (codItensCompra),
+	CONSTRAINT FkcodCompraIC FOREIGN KEY (codCompraIC) REFERENCES Compra (codCompra),
+	CONSTRAINT  FkcodInsumoIC FOREIGN KEY (codInsumoIC) REFERENCES Insumo (codInsumo)
 
-INSERT INTO EstoqueInsumo (quantidadeEstoqueInsumo, codInsumoEI) VALUES (45, 1)
+)
+
+CREATE TABLE Venda 
+(
+	codVenda INT IDENTITY,
+	dataHorarioVenda DATETIME NOT NULL,
+	formaPagamentoVenda VARCHAR (60) NOT NULL,
+	codUsuarioV INT NOT NULL,
+	codClienteV INT NOT NULL,
+	CONSTRAINT PkcodVenda PRIMARY KEY (codVenda),
+	CONSTRAINT FkcodUsuarioV FOREIGN KEY (codUsuarioV) REFERENCES Usuario (codUsuario),
+	CONSTRAINT FkcodClienteV FOREIGN KEY (codClienteV) REFERENCES Cliente (codCliente)
+
+)
+
+CREATE TABLE ItensVenda 
+(
+	codItensVenda INT IDENTITY,
+	quantidadeItensVenda INT NOT NULL,
+	valorTotalItensVenda MONEY NOT NULL,
+	codProdutoIV INT NOT NULL,
+	codVendaIV INT NOT NULL,
+	CONSTRAINT PkcodItensVenda PRIMARY KEY (codItensVenda),
+	CONSTRAINT FkcodProdutoIV FOREIGN KEY (codProdutoIV) REFERENCES Produto (codProduto),
+	CONSTRAINT FkcodVendaIV FOREIGN KEY (codVendaIV) REFERENCES Venda (codVenda)
+
+)
+
+  CREATE TABLE Colheita 
+(
+	codColheita INT IDENTITY,
+	dataHorarioColheita DATETIME NOT NULL,
+	quantidadeColheita INT NOT NULL,
+	codProdutoC INT NOT NULL,
+	CONSTRAINT PkcodColheita PRIMARY KEY (codColheita),
+	CONSTRAINT FkcodProdutoC FOREIGN KEY (codProdutoC) REFERENCES Produto (codProduto)
+
+)
+
+CREATE TABLE Plantacao 
+(
+	codPlantacao INT IDENTITY,
+	dataHorarioPlantacao DATETIME NOT NULL,
+	quantidadePlantacao INT NOT NULL,
+	codInsumoP INT NOT NULL,
+	CONSTRAINT PkcodPlantacao PRIMARY KEY (codPlantacao),
+	CONSTRAINT FkcodInsumoP FOREIGN KEY (codInsumoP) REFERENCES Insumo (codInsumo)
 
 
+)
+
+CREATE TABLE Entrega 
+(
+	codEntrega INT IDENTITY,
+	quantidadeEntrega INT NOT NULL,
+	codVendaE INT NOT NULL,
+	codClienteE INT NOT NULL,
+	CONSTRAINT PkcodEntrega PRIMARY KEY (codEntrega),
+	CONSTRAINT FkcodVendaE FOREIGN KEY (codVendaE) REFERENCES Venda (codVenda),
+	CONSTRAINT FkcodClienteE FOREIGN KEY (codClienteE) REFERENCES Cliente (codCliente)
+
+)
+
+
+
+
+
+
+
+
+
+SELECT * FROM Produto
 
 SELECT codInsumo AS 'Código', nomeInsumo AS 'Nome', dataValidadeInsumo AS 'Data de Validade', precoInsumo AS 'Preço' FROM Insumo
 

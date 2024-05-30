@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace POC_PIM.BLL
 {
-    class ClienteFisico
+    public class ClienteFisico
     {
         private int codClienteFisico;
         private string cpfCliente;

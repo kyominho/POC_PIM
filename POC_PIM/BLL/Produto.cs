@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace POC_PIM.BLL
 {
-    internal class Produto
+    public class Produto
     {
         private int codProduto;
         private string nomeProduto;

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace POC_PIM.BLL
 {
-     class Cliente
+     public class Cliente
     {
         //valores que correspondem ao que estao no banco
         private int codCliente;
