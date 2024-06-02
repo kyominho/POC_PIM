@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace POC_PIM.BLL
 {
-    class Compra
+    public class Compra
     {
         private int codCompra;
         private DateTime dataHorarioCompra;
