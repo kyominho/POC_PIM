@@ -190,20 +190,3 @@ CREATE TABLE Entrega
 
 
 
-
-
-
-SELECT * FROM Produto
-
-SELECT codInsumo AS 'Código', nomeInsumo AS 'Nome', dataValidadeInsumo AS 'Data de Validade', precoInsumo AS 'Preço' FROM Insumo
-
-SELECT * FROM Cliente
-
-SELECT * FROM ClienteFisico
-
---TESTANDO DQL (CONSULTAS COM INNER JOIN)
-SELECT nomeCliente AS 'Nome', cpfCliente AS 'CPF', emailCliente AS 'Email 'FROM Cliente JOIN ClienteFisico ON Cliente.codCliente = ClienteFisico.codClienteF
-
-SELECT nomeInsumo AS 'Nome', dataValidadeInsumo AS 'Data de Validade', precoInsumo AS 'Preço', quantidadeEstoqueInsumo AS 'Estoque' FROM Insumo JOIN EstoqueInsumo ON Insumo.codInsumo = EstoqueInsumo.codInsumoEI 
-
-SELECT nomeProduto AS 'Nome', dataValidadeProduto AS 'Data de Validade', precoProduto AS 'Preço', quantidadeEstoqueProduto AS 'Estoque' FROM Produto JOIN EstoqueProduto ON Produto.codProduto = EstoqueProduto.codProdutoEP 

@@ -13,7 +13,7 @@ namespace POC_PIM
         static void Main(string[] args)
         {
             int escolha;
-
+            #region Opções 
             Console.WriteLine("Escolha uma das opções abaixo: ");
 
             Console.WriteLine("1 - Cadastrar Cliente");
@@ -36,7 +36,7 @@ namespace POC_PIM
 
             escolha = Convert.ToInt32(Console.ReadLine());
 
-
+            #endregion
 
             switch (escolha)
             {
@@ -457,6 +457,251 @@ namespace POC_PIM
 
                     break;
 
+                #endregion
+
+                #region Cadastro de Venda
+                case 11:
+                    
+
+                    BLL.Venda venda = new BLL.Venda();
+                    DAL.VendaDAL vendaDAL = new DAL.VendaDAL();
+
+
+                    try
+                    {
+
+                        Console.WriteLine("Digite a data e horario da Venda: ");
+                        venda.DataHorarioVenda = Convert.ToDateTime(Console.ReadLine());
+
+                        Console.WriteLine("Digite a forma de pagamento: ");
+                        venda.FormaPagamentoVenda = Console.ReadLine();
+
+                        Console.WriteLine("Digite o código do Usuário: ");
+                        venda.CodUsuarioV = Convert.ToInt16(Console.ReadLine());
+
+                        Console.WriteLine("Digite o código do Cliente: ");
+                        venda.CodClienteV = Convert.ToInt16(Console.ReadLine());
+
+                        vendaDAL.CadastrarVenda(venda);
+
+                        Console.WriteLine("Dados Cadastrados");
+
+                        Console.ReadKey();
+                        Console.Clear();
+
+                    }
+
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(String.Format("Erro ao executar cadastro de Venda {0}.  Erro:  " +
+      "{1}", venda.CodVenda, ex.Message));
+
+                        Console.ReadKey();
+                    }
+
+
+                    break;
+                #endregion
+
+                #region Cadastro de Itens Venda
+                case 12:
+
+                    BLL.ItensVenda itensVenda = new BLL.ItensVenda();
+                    DAL.ItensVendaDAL itensVendaDAL = new DAL.ItensVendaDAL();
+
+                    try
+                    {
+
+                        Console.WriteLine("Digite a quantidade de Itens na Venda: ");
+                        itensVenda.QuantidadeItensVenda = Convert.ToInt16(Console.ReadLine());
+
+                        Console.WriteLine("Digite o valor Total: ");
+                        itensVenda.ValorTotalItensVenda = Convert.ToDouble (Console.ReadLine());
+
+                        Console.WriteLine("Digite o código da Venda: ");
+                        itensVenda.CodVendaIV = Convert.ToInt16(Console.ReadLine());
+
+                        Console.WriteLine("Digite o código do Produto: ");
+                        itensVenda.CodProdutoIV = Convert.ToInt16(Console.ReadLine());
+
+                        itensVendaDAL.CadastrarItensVenda(itensVenda);
+
+                        Console.WriteLine("Dados Cadastrados");
+
+                        Console.ReadKey();
+                        Console.Clear();
+
+                    }
+
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(String.Format("Erro ao executar cadastro de Itens da Venda {0}.  Erro:  " +
+      "{1}", itensVenda.CodItensVenda, ex.Message));
+
+                        Console.ReadKey();
+                    }
+
+                    break;
+
+                #endregion
+
+                #region Cadastro de Itens Compra
+
+                case 13:
+
+                    BLL.ItensCompra itensCompra = new BLL.ItensCompra();
+                    DAL.ItensCompraDAL itensCompraDAL = new DAL.ItensCompraDAL();
+
+                    try
+                    {
+
+                        Console.WriteLine("Digite a quantidade de Itens na Compra: ");
+                        itensCompra.QuantidadeItensCompra = Convert.ToInt16(Console.ReadLine());
+
+                        Console.WriteLine("Digite o valor Total: ");
+                        itensCompra.ValorTotalItensCompra = Convert.ToDouble(Console.ReadLine());
+
+                        Console.WriteLine("Digite o código da Compra: ");
+                        itensCompra.CodCompraIC = Convert.ToInt16(Console.ReadLine());
+
+                        Console.WriteLine("Digite o código do Insumo: ");
+                        itensCompra.CodInsumoIC = Convert.ToInt16(Console.ReadLine());
+
+                        itensCompraDAL.CadastrarItensCompra(itensCompra);
+
+                        Console.WriteLine("Dados Cadastrados");
+
+                        Console.ReadKey();
+                        Console.Clear();
+
+                    }
+
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(String.Format("Erro ao executar cadastro de Itens da Compra {0}.  Erro:  " +
+      "{1}", itensCompra.CodItensCompra, ex.Message));
+
+                        Console.ReadKey();
+                    }
+
+                    break;
+
+                #endregion
+
+                #region Cadastro de Plantação
+
+                case 14:
+
+                    BLL.Plantacao plantacao = new BLL.Plantacao();
+                    DAL.PlantacaoDAL plantacaoDAL = new DAL.PlantacaoDAL();
+
+                    try
+                    {
+
+                        Console.WriteLine("Digite a data e o horário: ");
+                        plantacao.DataHorarioPlantacao = Convert.ToDateTime(Console.ReadLine());
+
+                        Console.WriteLine("Digite a quantidade: ");
+                        plantacao.QuantidadePlantacao = Convert.ToInt16(Console.ReadLine());
+
+                        Console.WriteLine("Digite o código do insumo a ser plantado: ");
+                        plantacao.CodInsumoP = Convert.ToInt16(Console.ReadLine());
+
+                        plantacaoDAL.CadastrarPlantacao(plantacao);
+
+                        Console.WriteLine("Dados cadastrados!");
+
+                        Console.ReadKey();
+                        Console.Clear();
+                    }
+
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(String.Format("Erro ao executar cadastro da Plantação {0}.  Erro:  " +
+      "{1}", plantacao.CodPlantacao, ex.Message));
+                        Console.ReadKey();
+                    }
+
+
+
+                    break;
+                #endregion
+
+                #region Cadastro de Colheita
+
+                case 15:
+
+                    BLL.Colheita colheita = new BLL.Colheita();
+                    DAL.ColheitaDAL colheitaDAL = new DAL.ColheitaDAL();
+
+                    try
+                    {
+
+                        Console.WriteLine("Digite a data e o horário: ");
+                        colheita.DataHorarioColheita = Convert.ToDateTime(Console.ReadLine());
+
+                        Console.WriteLine("Digite a quantidade: ");
+                        colheita.QuantidadeColheita = Convert.ToInt16(Console.ReadLine());
+
+                        Console.WriteLine("Digite o código do produto a ser colhido: ");
+                        colheita.CodProdutoC= Convert.ToInt16(Console.ReadLine());
+
+                        colheitaDAL.CadastrarColheita(colheita);
+
+                        Console.WriteLine("Dados cadastrados!");
+
+                        Console.ReadKey();
+                        Console.Clear();
+                    }
+
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(String.Format("Erro ao executar cadastro da Colheita {0}.  Erro:  " +
+      "{1}", colheita.CodColheita, ex.Message));
+                        Console.ReadKey();
+                    }
+
+
+
+                    break;
+                #endregion
+
+                #region Cadastro de Entrega
+
+                case 16:
+
+                    BLL.Entrega entrega = new BLL.Entrega();
+                    DAL.EntregaDAL entregaDAL = new DAL.EntregaDAL();
+
+                    try
+                    {
+                        Console.WriteLine("Digite a quantidade: ");
+                        entrega.QuantidadeEntrega = Convert.ToInt16(Console.ReadLine());
+
+                        Console.WriteLine("Digite o codigo da Venda: ");
+                        entrega.CodVendaE = Convert.ToInt16(Console.ReadLine());
+
+                        Console.WriteLine("Digite o código do Cliente: ");
+                        entrega.CodClienteE = Convert.ToInt16(Console.ReadLine());
+
+                        entregaDAL.CadastrarEntrega(entrega);
+
+                        Console.WriteLine("Dados cadastrados!");
+
+                        Console.ReadKey();
+                        Console.Clear();
+                    }
+
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(String.Format("Erro ao executar cadastro da Plantação {0}.  Erro:  " +
+      "{1}", entrega.CodEntrega, ex.Message));
+                        Console.ReadKey();
+                    }
+
+
+
+                    break;
                     #endregion
             }
 

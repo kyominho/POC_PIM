@@ -19,7 +19,7 @@ namespace POC_PIM.DAL
             cmd.CommandText = @"INSERT INTO Plantacao VALUES (@DataHorarioPlantacao, @QuantidadePlantacao, @CodInsumoP)";
             cmd.Parameters.AddWithValue("@DataHorarioPlantacao", plantacao.DataHorarioPlantacao);
             cmd.Parameters.AddWithValue("@QuantidadePlantacao", plantacao.QuantidadePlantacao);
-            cmd.Parameters.AddWithValue("@CodInsumoP", plantacao.DataHorarioPlantacao);
+            cmd.Parameters.AddWithValue("@CodInsumoP", plantacao.CodInsumoP);
 
             //chamando metodo de abrir conexao com o BD
             cmd.Connection = conexao.Conectar();

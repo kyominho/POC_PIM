@@ -15,7 +15,7 @@ namespace POC_PIM.DAL
         {
             SqlCommand cmd = new SqlCommand();
 
-            cmd.CommandText = @"INSERT INTO ItensVenda VALUES (@QuantidadeItensCompra, @ValorTotalItensCompra, @CodInsumoIC, @CodCompraIC)";
+            cmd.CommandText = @"INSERT INTO ItensCompra VALUES (@QuantidadeItensCompra, @ValorTotalItensCompra, @CodInsumoIC, @CodCompraIC)";
 
             cmd.Parameters.AddWithValue("@QuantidadeItensCompra", itensCompra.QuantidadeItensCompra);
             cmd.Parameters.AddWithValue("@ValorTotalItensCompra", itensCompra.ValorTotalItensCompra);
