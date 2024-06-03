@@ -62,11 +62,17 @@
     <Compile Include="DAL\ClienteDAL.cs" />
     <Compile Include="DAL\ClienteFisicoDAL.cs" />
     <Compile Include="DAL\ClienteJuridicoDAL.cs" />
+    <Compile Include="DAL\ColheitaDAL.cs" />
+    <Compile Include="DAL\CompraDAL.cs" />
     <Compile Include="DAL\Conexao.cs" />
+    <Compile Include="DAL\EntregaDAL.cs" />
     <Compile Include="DAL\EstoqueInsumoDAL.cs" />
+    <Compile Include="DAL\EstoqueProdutoDAL.cs" />
     <Compile Include="DAL\FornecedorDAL.cs" />
     <Compile Include="DAL\InsumoDAL.cs" />
+    <Compile Include="DAL\ItensCompraDAL.cs" />
     <Compile Include="DAL\ItensVendaDAL.cs" />
+    <Compile Include="DAL\PlantacaoDAL.cs" />
     <Compile Include="DAL\ProdutoDAL.cs" />
     <Compile Include="DAL\UsuarioDAL.cs" />
     <Compile Include="DAL\VendaDAL.cs" />

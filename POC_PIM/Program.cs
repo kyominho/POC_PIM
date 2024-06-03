@@ -24,6 +24,15 @@ namespace POC_PIM
             Console.WriteLine("6 - Cadastrar Fornecedor");
             Console.WriteLine("7 - Cadastrar Insumo");
             Console.WriteLine("8 - Cadastrar Estoque de Insumo");
+            Console.WriteLine("9 - Cadastrar Estoque de Produto");
+            Console.WriteLine("10 - Cadastrar Compra");
+            Console.WriteLine("11 - Cadastrar Venda");
+            Console.WriteLine("12 - Cadastrar Itens de Venda");
+            Console.WriteLine("13 - Cadastrar Itens de Compra");
+            Console.WriteLine("14 - Cadastrar Plantação");
+            Console.WriteLine("15 - Cadastrar Colheita");
+            Console.WriteLine("16 - Cadastrar Entrega");
+
 
             escolha = Convert.ToInt32(Console.ReadLine());
 
@@ -31,6 +40,7 @@ namespace POC_PIM
 
             switch (escolha)
             {
+                #region Cadastro de Cliente
                 case 1:
 
                     //Instanciando classes
@@ -85,6 +95,9 @@ namespace POC_PIM
 
                     break;
 
+                #endregion
+
+                #region Cadastro de Usuário
                 case 2:
 
                     //Instanciando classes
@@ -125,7 +138,9 @@ namespace POC_PIM
 
                     break;
 
+                #endregion
 
+                #region Cadastro de Produto
                 case 3:
                     //CADASTRO DE PRODUTO
                     BLL.Produto produto = new BLL.Produto();
@@ -160,7 +175,9 @@ namespace POC_PIM
                     }
 
                     break;
+                #endregion
 
+                #region Cadastro de Cliente Fisico 
                 case 4:
 
                     BLL.ClienteFisico clienteFisico = new BLL.ClienteFisico();
@@ -192,7 +209,9 @@ namespace POC_PIM
                     }
 
                     break;
+                #endregion
 
+                #region Cadastro de Cliente Juridico
                 case 5:
 
                     BLL.ClienteJuridico clienteJuridico = new BLL.ClienteJuridico();
@@ -233,6 +252,9 @@ namespace POC_PIM
 
                     break;
 
+                #endregion
+
+                #region Cadastro de Fornecedor
                 case 6:
 
                     BLL.Fornecedor fornecedor = new BLL.Fornecedor();
@@ -283,8 +305,9 @@ namespace POC_PIM
 
 
                     break;
+                #endregion
 
-
+                #region Cadastro de Insumo
                 case 7:
 
                     BLL.Insumo insumo = new BLL.Insumo();
@@ -318,7 +341,9 @@ namespace POC_PIM
 
 
                     break;
+                #endregion
 
+                #region Cadastro de Estoque de Insumo
                 case 8:
 
                     BLL.EstoqueInsumo estoqueInsumo = new BLL.EstoqueInsumo();
@@ -352,20 +377,101 @@ namespace POC_PIM
 
 
                     break;
+
+                #endregion
+
+                #region Cadastro de Estoque de Produto
+                case 9:
+
+                    BLL.EstoqueProduto estoqueProduto = new BLL.EstoqueProduto();
+                    DAL.EstoqueProdutoDAL estoqueProdutoDAL = new DAL.EstoqueProdutoDAL();
+
+                    try
+                    {
+
+                        Console.WriteLine("Digite a quantidade de estoque do Produto: ");
+                        estoqueProduto.QuantidadeEstoqueProduto = Convert.ToInt32(Console.ReadLine());
+
+                        Console.WriteLine("Digite o código do Produto: ");
+                        estoqueProduto.CodProdutoEP = Convert.ToInt32(Console.ReadLine());
+
+                        estoqueProdutoDAL.CadastrarEstoqueP(estoqueProduto);
+
+                        Console.WriteLine("Dados Cadastrados");
+
+                        Console.ReadKey();
+                        Console.Clear();
+
+                    }
+
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(String.Format("Erro ao executar cadastro do Estoque de Produto {0}.  Erro:  " +
+      "{1}", estoqueProduto.CodProdutoEP, ex.Message));
+
+                        Console.ReadKey();
+                    }
+
+
+                    break;
+                #endregion
+
+                #region Cadastro de Compra
+
+                case 10: 
+
+                    BLL.Compra compra = new BLL.Compra();
+                    DAL.CompraDAL compraDAL = new DAL.CompraDAL();
+
+                    try
+                    {
+
+                        Console.WriteLine("Digite a data e horario da Compra: ");
+                        compra.DataHorarioCompra = Convert.ToDateTime(Console.ReadLine());
+
+                        Console.WriteLine("Digite a forma de pagamento: ");
+                        compra.FormaPagamentoCompra = Console.ReadLine();
+
+                        Console.WriteLine("Digite o código do Fornecedor: ");
+                        compra.CodFornecedorC = Convert.ToInt16(Console.ReadLine());
+
+                        Console.WriteLine("Digite o código do Usuário: ");
+                        compra.CodUsuarioC = Convert.ToInt16(Console.ReadLine());
+
+                        compraDAL.CadastrarCompra(compra);
+
+                        Console.WriteLine("Dados Cadastrados");
+
+                        Console.ReadKey();
+                        Console.Clear();
+
+                    }
+
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(String.Format("Erro ao executar cadastro de Compra {0}.  Erro:  " +
+      "{1}", compra.CodCompra, ex.Message));
+
+                        Console.ReadKey();
+                    }
+
+                    break;
+
+                    #endregion
             }
 
 
 
 
 
-        
 
 
 
 
-         
 
-          
+
+
+
 
         }
 
