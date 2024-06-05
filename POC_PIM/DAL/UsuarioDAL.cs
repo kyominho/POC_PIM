@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 
+
 namespace POC_PIM.DAL
 {
     class UsuarioDAL
@@ -14,7 +15,7 @@ namespace POC_PIM.DAL
 
         //cadastrando usuario. Trazendo os dados encapsulados da BLL
 
-        public void CadastrarUsuario (BLL.Usuario usuario)
+        public void CadastrarUsuario(BLL.Usuario usuario)
         {
             SqlCommand cmd = new SqlCommand();
 
@@ -35,6 +36,44 @@ namespace POC_PIM.DAL
             //chamando o metodo de fechar conexão
             conexao.Desconectar();
 
+        }
+
+        //CONSULTA DE USUÁRIOS
+        public List<BLL.Usuario> GetUsuarios()
+        {
+            List<BLL.Usuario> usuarios = new List<BLL.Usuario>();
+
+            Conexao conexao = new Conexao();
+
+            SqlCommand cmd = new SqlCommand();
+
+            //selecionando os dados
+            cmd.CommandText = @"SELECT * FROM Usuario";
+
+            cmd.Connection = conexao.Conectar();
+
+            //executando o comando e armazenando os resultados
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            //lendo os resultados
+            while (reader.Read())
+            {
+                BLL.Usuario usuario = new BLL.Usuario();
+                usuario.NomeUsuario = reader ["nomeUsuario"].ToString();
+                usuario.NivelAcesso = Convert.ToInt16 (reader ["nivelAcesso"].ToString());
+                usuario.Login = reader ["login"].ToString();
+                usuario.Senha = reader ["senha"].ToString();
+
+                usuarios.Add(usuario);
+
+                
+
+               
+
+            }
+            //fechando conexao
+            conexao.Desconectar();
+            return usuarios;
         }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace POC_PIM
 {
-     class Program
+    class Program
 
 
     {
@@ -53,6 +53,7 @@ namespace POC_PIM
 
                     try
                     {
+
                         Console.WriteLine("Informe o nome do cliente: ");
                         cliente.NomeCliente = Console.ReadLine();
 
@@ -81,6 +82,8 @@ namespace POC_PIM
 
                         Console.WriteLine("Dados cadastrados!");
 
+                        ConsultaCliente();
+
                         Console.ReadKey();
                         Console.Clear();
 
@@ -106,23 +109,23 @@ namespace POC_PIM
 
                     try
                     {
-                        Console.WriteLine("Informe o nome do usuário: ");
+                        Console.WriteLine("Informe o nome do usuário: \n");
                         usuario.NomeUsuario = Console.ReadLine();
 
-                        Console.WriteLine("Informe o nivel de acesso do usuário: ");
+                        Console.WriteLine("Informe o nivel de acesso do usuário: \n");
                         usuario.NivelAcesso = Convert.ToInt16(Console.ReadLine());
 
-                        Console.WriteLine("Informe o login do usuário: ");
+                        Console.WriteLine("Informe o login do usuário: \n ");
                         usuario.Login = Console.ReadLine();
 
-                        Console.WriteLine("Informe a senha do usuário: ");
+                        Console.WriteLine("Informe a senha do usuário: \n ");
                         usuario.Senha = Console.ReadLine();
 
                         usuarioDAL.CadastrarUsuario(usuario);
 
-                        Console.WriteLine("Dados cadastrados!");
+                        Console.WriteLine("Dados cadastrados!\n\n\n");
 
-
+                        ConsultaUsuario();
                         Console.ReadKey();
                         Console.Clear();
 
@@ -161,7 +164,6 @@ namespace POC_PIM
 
 
                         Console.WriteLine("Dados cadastrados!");
-
 
                         Console.ReadKey();
                         Console.Clear();
@@ -350,7 +352,7 @@ namespace POC_PIM
                     DAL.EstoqueInsumoDAL estoqueInsumoDAL = new DAL.EstoqueInsumoDAL();
 
                     try
-                          {
+                    {
 
                         Console.WriteLine("Digite a quantidade de estoque do Insumo: ");
                         estoqueInsumo.QuantidadeEstoqueInsumo = Convert.ToInt32(Console.ReadLine());
@@ -418,7 +420,7 @@ namespace POC_PIM
 
                 #region Cadastro de Compra
 
-                case 10: 
+                case 10:
 
                     BLL.Compra compra = new BLL.Compra();
                     DAL.CompraDAL compraDAL = new DAL.CompraDAL();
@@ -461,7 +463,7 @@ namespace POC_PIM
 
                 #region Cadastro de Venda
                 case 11:
-                    
+
 
                     BLL.Venda venda = new BLL.Venda();
                     DAL.VendaDAL vendaDAL = new DAL.VendaDAL();
@@ -516,7 +518,7 @@ namespace POC_PIM
                         itensVenda.QuantidadeItensVenda = Convert.ToInt16(Console.ReadLine());
 
                         Console.WriteLine("Digite o valor Total: ");
-                        itensVenda.ValorTotalItensVenda = Convert.ToDouble (Console.ReadLine());
+                        itensVenda.ValorTotalItensVenda = Convert.ToDouble(Console.ReadLine());
 
                         Console.WriteLine("Digite o código da Venda: ");
                         itensVenda.CodVendaIV = Convert.ToInt16(Console.ReadLine());
@@ -644,7 +646,7 @@ namespace POC_PIM
                         colheita.QuantidadeColheita = Convert.ToInt16(Console.ReadLine());
 
                         Console.WriteLine("Digite o código do produto a ser colhido: ");
-                        colheita.CodProdutoC= Convert.ToInt16(Console.ReadLine());
+                        colheita.CodProdutoC = Convert.ToInt16(Console.ReadLine());
 
                         colheitaDAL.CadastrarColheita(colheita);
 
@@ -705,20 +707,41 @@ namespace POC_PIM
                     #endregion
             }
 
+        }
 
+        static void ConsultaUsuario ()
+        {
+            DAL.UsuarioDAL usuarioDAL = new DAL.UsuarioDAL();
+            List<BLL.Usuario> usuarios = usuarioDAL.GetUsuarios(); 
+            
+            //Exibindo dados dos usuarios
 
-
-
-
-
-
-
-
-
-
-
+            foreach (BLL.Usuario usuario in usuarios)
+            {
+                Console.WriteLine($"nomeUsuario: {usuario.NomeUsuario}, nivelAcesso: {usuario.NivelAcesso}, login: {usuario.Login}, senha: {usuario.Senha} ");
+            }
 
         }
+
+        static void ConsultaCliente()
+        {
+            DAL.ClienteDAL clienteDAL = new DAL.ClienteDAL();
+            List<BLL.Cliente> clientes = clienteDAL.GetClientes();
+
+            //Exibindo dados dos usuarios
+
+            foreach (BLL.Cliente cliente in clientes)
+            {
+                Console.WriteLine($"nomeCliente: {cliente.NomeCliente}, emailCliente: {cliente.EmailCliente}, ufCliente: {cliente.UFCliente}, cidadeCliente: {cliente.CidadeCliente}, telefoneCliente: {cliente.TelefoneCliente}, cepCliente: {cliente.CepCliente}, logradouroCliente: {cliente.LogradouroCliente}, numCliente: {cliente.NumCliente} ");
+            }
+
+        }
+
+
+
+
+
+
 
 
     }

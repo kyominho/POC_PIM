@@ -38,5 +38,48 @@ namespace POC_PIM.DAL
 
         }
 
+        public List<BLL.Cliente> GetClientes()
+        {
+            List<BLL.Cliente> clientes = new List<BLL.Cliente>();
+
+            Conexao conexao = new Conexao();
+
+            SqlCommand cmd = new SqlCommand();
+
+            //selecionando os dados
+            cmd.CommandText = @"SELECT * FROM Cliente";
+
+            cmd.Connection = conexao.Conectar();
+
+            //executando o comando e armazenando os resultados
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            //lendo os resultados
+            while (reader.Read())
+            {
+                BLL.Cliente cliente = new BLL.Cliente();
+
+                cliente.NomeCliente = reader["nomeCliente"].ToString();
+                cliente.EmailCliente = reader["emailCliente"].ToString();
+                cliente.UFCliente = reader["ufCliente"].ToString();
+                cliente.CidadeCliente = reader["cidadeCliente"].ToString();
+                cliente.TelefoneCliente = reader["telefoneCliente"].ToString();
+                cliente.CepCliente = reader["cepCliente"].ToString();
+                cliente.LogradouroCliente = reader["logradouroCliente"].ToString();
+                cliente.NumCliente = Convert.ToInt16(reader["numeroEnderecoCliente"].ToString());
+     
+
+                clientes.Add(cliente);
+
+
+
+
+
+            }
+            //fechando conexao
+            conexao.Desconectar();
+            return clientes;
+        }
+
     }
 }
